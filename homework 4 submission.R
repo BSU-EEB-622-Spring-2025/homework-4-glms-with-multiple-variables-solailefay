@@ -90,6 +90,7 @@ plot_predictions(seedling_mod2, condition = c("Treatment", "Year"))
 
 predictions(seedling_mod2, newdata = data.frame(Treatment = c("parasitized", "parasitized", "unparasitized", "unparasitized"),
                                          Year = c("2011", "2012", "2011", "2012")))
+
 # CI for the two parasitized treatments in 2011/2012 overlap each other, but not for the unparasitized treatments between years. There is a significant effect of year on seedlings for the unparasitized group but not the parasitized group.
 #new slope on scale of response for unparasitized treatment in this new model
 exp(-3.8178) #0.022
@@ -113,7 +114,8 @@ slope <- summary(thinningmod)$coefficients["thinning", "Estimate"] # -1.855
 
 plogis(int) #0.73
 plogis(slope) #0.135
-plogis(int + (int+slope*1)) #0.53
+plogis(int+slope*1) #0.29
+
 
 
 plot_predictions(thinningmod, condition="thinning") + 
