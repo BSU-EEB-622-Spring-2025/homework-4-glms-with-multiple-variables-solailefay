@@ -72,6 +72,8 @@ exp(-3.1575) #0.04
 
 # My analyses indicate that the number of predicted seedlings underneath parasitized and unparasitized trees is about 308 seedlings (95% CI = 218.6 - 434.6) and 13 seedlings (95% CI = 9.3 - 18.6), respectively. The predicted mean seedling count under unparasitized trees is about 4% that of parasitized trees. These results support the alternative hypothesis that mistletoe infection alters seedling density. However, the MAE value of 145 suggests there is a lot of error in these predictions due to the high variability in seedling counts under trees, particularly for that of parasitized trees, which is also represented by the large confidence interval. There are likely other factors that are affecting the number of seedlings under parasitized/unparasitized trees, and our model representing the predictor of mistletoe treatment alone is a poor fit for predicting seedling count under trees.
 
+## ASW: wonderful interpretation! Good interpretation of fit, though good to note that seedling values do range from 0 to >2000.
+
 
 ## 1c) 
 
@@ -97,7 +99,7 @@ exp(-3.8178) #0.022
 
 #In conclusion, there is technically not a significant effect of year on treatment, as the interaction term has a p value above 0.05, although just barely. The confidence intervals of parasitized treatments between the two years overlap quite a lot, suggesting a large amount of uncertaintly around the estimates. However, the MAE is slightly lower for the second model, indicating slightly less average error. There are likely other factors that can help to better explain seedlings under parasitized and unparasitized trees.
 
-
+## ASW: lovely work! 30/30
 
 
 ## Question 2:
@@ -135,6 +137,8 @@ test_roc <- roc(treemortality$mortality # Actual mortality data
 test_roc #AUC: 0.71
 
 # Probability of tree mortality in unthinned vs. thinned forests is 73% (95% CI: 0.683 - 0.771) and 29.7% (95% CI: 0.261 - 0.335), respectively; the probability of tree mortality drops about 53% when forests are thinned. Because small and large trees were sampled equally across thinned and unthinned forests, the affect of tree size on mortality is controlled for. The AUC of 0.71 indicates this model is able to explain the relationship between forest thinning and tree mortality better than random chance. The AUC, along with fairly small confidence intervals around the estimates and a lack of confidence intervals overlapping, indicate this model is able to explain the affect of forest thinning on tree mortality fairly well and supports the hypothesis that thinning decreases the probability of tree mortality in wildfire.
+
+##ASW: great work!
 
 
 ## 2b)
@@ -185,5 +189,11 @@ test_roc2 #AUC: 0.96
 53 - 31 #22% drop in thinned forests for second model
 
 # The probability of tree mortality with the second model that accounts for the confounding variables of road distance and slope dropped 27%, from 73% to 53% (95% CI: 0.443 - 0.613) in unthinned forests, and raised 4% in thinned forests between the first and second model from 29.7% to 31% (95% CI: 0.25 - 0.36).  Accounting for slope and road distance dramatically changed the estimate of tree mortality in unthinned forests, but did not change the estimate in thinned forests much. With this second model accounting for confounding variables, the probability of tree mortality drops about 22% when forests are thinned, compared to a drop of 53% from the first model. The effect of thinning on tree mortality is therefore smaller in the second model than the first, because the first model was assigning the effects of slope and road distance on tree mortality to the thinning treatment and therefore inflating the estimate. The AUC for the first model was 0.71 and the AUC for the second model is 0.96, indicating the second model explains variation in tree mortality better than the first model.
+
+## ASW: the drop is about the comparison of the two probabilities (between thinned and unthinned), not necessarily how the baseline shifts for one or the other category. The key thing here is that slope and distance from roads are biasing the effect of thinning in the first model, making it appear more effective than it is because of the fact that thinning treatments are more likely to occur in locations where fire severity is already lower (closer to roads, on shallower slopes). The predicted effect of thinning in the first model is a decrease in mortality from 73% to 29%, but in the second model, this effect decreases (Mortality decreases from 54% to 29%).
+
+## ASW: beautiful work! 20/20
+
+## 50/50
 
 
